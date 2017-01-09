@@ -177,12 +177,11 @@
           var maxPoint = new Point(view.size.width, view.size.height);
           //random point for circle
           var randomPoint = Point.random();
-          //random point generation
+          // generate circle at random point
           var point = maxPoint * randomPoint;
           var newCircle = new Path.Circle(point, 500);
           newCircle.fillColor = keyData[event.key].color;
           keyData[event.key].sound.play();
-          // When a key is pressed, create a new circle in random viewable location
           circles.push(newCircle);
         }
       }
@@ -190,6 +189,7 @@
       //Circle Animation
       function onFrame(event){
         for(var i = 0; i < circles.length; i++){
+        //Shrink and Color Change
           circles[i].scale(0.9);
           circles[i].fillColor.hue += 1;
           if(circles[i].area < 1){
